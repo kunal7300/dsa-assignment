@@ -1,0 +1,30 @@
+int minimumDeletions(vector<int>& nums) {
+        int n=nums.size();
+   // elemnt which is minimum or maximum
+        int a=*max_element(nums.begin() , nums.end());
+        int b=*min_element(nums.begin() , nums.end());
+       int maxi =-1 , mini=-1;
+        for(int i=0 ; i<n ; i++)
+        {
+            if(nums[i]==a){
+                mini=i;
+            }
+             if(nums[i]==b){
+                maxi=i;
+            }
+            
+        }
+         //deletion from both ends
+
+         //dlt from front
+         int case1=max(mini,maxi)+1;
+        //dlt from end 
+         int case2=n- min(mini,maxi);
+      // dlt from one front and one from end
+         int case3= (mini+1) + (n-maxi);
+         int case4= (maxi+1) + (n-mini);
+         //store min ans
+         int ans=min({case1,case2,case3,case4});
+
+         return ans;
+    }
