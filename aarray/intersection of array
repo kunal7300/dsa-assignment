@@ -1,0 +1,19 @@
+ vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+          
+        unordered_set<int>u(nums1.begin() ,nums1.end());
+        
+       vector<int>result;
+        for(int i=0 ; i<nums2.size() ; i++)
+        { 
+            if(u.count(nums2[i]))
+            {
+                result.push_back(nums2[i]);
+                u.erase(nums2[i]);
+            }
+        }
+      
+       return result;
+    }
+
+t.c=o(n)
+s.c=o(1)
