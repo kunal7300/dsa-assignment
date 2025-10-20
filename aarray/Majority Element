@@ -1,0 +1,22 @@
+ int majorityElement(vector<int>& nums) {
+           sort(nums.begin(), nums.end()); // Sorting helps in counting adjacent duplicates
+    
+    int count = 1, maxCount = 0, ans = nums[0];
+
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] == nums[i - 1]) { 
+            count++; // Count the frequency of the current number
+        } else {  
+            count = 1; // Reset count for the new number
+        }
+
+        if (count > nums.size() / 2) { 
+            return nums[i]; // If count > n/2, return immediately
+        }
+    }
+
+    return ans; // If majority exists, return ans
+    }
+
+T.C=O(logn)
+S.C=O(N)
