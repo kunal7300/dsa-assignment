@@ -1,0 +1,53 @@
+int maxFrequencyElements(vector<int>& nums) { 
+
+      //  brute force
+        int n=nums.size();
+        int  count=1;
+        sort(nums.begin() , nums.end());
+        vector<int>frq;
+        
+        if(nums.size()==1) return 1;
+        for(int i=1  ; i<n ; i++)
+        {
+            if(nums[i]==nums[i-1])
+            {
+                count++;
+            }
+            else
+            {
+                frq.push_back(count);
+                count=1; 
+            }
+        
+        }
+         frq.push_back(count);
+
+         int maxifrq=*max_element(frq.begin() , frq.end());
+         int sum=0;
+        for(int i=0 ; i<frq.size() ; i++)
+        {
+            if(frq[i]==maxifrq)
+            {
+                sum+=frq[i];
+            }
+        }
+       
+       return sum;
+            // by using hashmap  
+             unordered_map<int,int>frq;
+               int maxi=0;
+             for(int i=0 ; i<nums.size() ; i++)
+             {
+               frq[nums[i]]++;                 
+               maxi=max(maxi,frq[nums[i]]);
+             }
+
+        int sum=0;
+
+        for(auto i=frq.begin() ; i!=frq.end() ; i++)
+        {
+            if(i->second==maxi) sum+=i->second;
+        }
+
+        return sum;
+    }
