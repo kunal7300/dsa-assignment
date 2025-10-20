@@ -1,0 +1,15 @@
+vector<int> runningSum(vector<int>& nums) {
+        int n=nums.size();
+        int sum=0;
+        vector<int>ans;
+        int i;
+       // itterate through loop add the element that encounter nd store in the vector 
+        for(i=0 ; i<n ; i++)
+        {
+            sum+=nums[i];
+            ans.push_back(sum);
+        }
+
+       return ans;
+            
+    }
