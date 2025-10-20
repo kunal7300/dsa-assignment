@@ -1,0 +1,23 @@
+  int maxProduct(vector<int>& nums) {
+        int n=nums.size();
+        int ans=nums[0];
+        int currmax=nums[0];
+        int currmin=nums[0];
+        int  i=1 , j=1;
+        while(j<n)
+        {
+            int val=nums[j];
+            if(val<0) swap(currmax , currmin);
+
+            currmax=max(val , currmax*val); 
+            currmin=min(val , currmin*val); 
+
+            ans=max(ans , currmax);
+
+            j++;  
+        }
+        return ans;
+    }
+
+T.C=O(N)
+S.C=O(1)
