@@ -1,0 +1,17 @@
+   int solve(vector<int>&arr,int i , int sum)
+    {
+        if(i==arr.size()){
+            return sum ;
+        }
+        
+        sum=sum+arr[i];
+       return  solve(arr,i+1 , sum);
+        
+    }
+    int arraySum(vector<int>& arr) {
+        // code here
+       return  solve(arr , 0 , 0);
+    }
+
+t.c=o(n)
+s.c=o(n)
