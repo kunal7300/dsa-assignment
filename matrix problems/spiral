@@ -1,0 +1,44 @@
+    vector<int> spiralOrder(vector<vector<int>>&matrix) {
+
+        vector<int>ans ;
+
+        int n=matrix.size();  //row 
+        int m=matrix[0].size(); //col
+        int top=0 , bottom =n-1 ;
+        int right=m-1 , left= 0;
+
+    while(left<=right && top<=bottom)  {
+       for(int j=left; j<=right ; j++)
+       {
+          ans.push_back(matrix[top][j]);
+       }
+          top++;     
+
+       for(int i=top ; i<=bottom ; i++)
+       {
+         ans.push_back(matrix[i][right]);
+       }
+         right--;
+        
+        if(top<=bottom) {
+        for(int j=right; j>=left ; j--)
+         {
+          ans.push_back(matrix[bottom][j]);
+         }
+          bottom--;                       
+       }
+
+     if(left<=right) {
+       for(int i=bottom; i>=top ; i--)
+       {
+         ans.push_back(matrix[i][left]);
+       }
+         left++;
+    }
+
+    }
+    return ans;
+ }
+
+ t.c=o(m*n);
+ s.c=o(1)
