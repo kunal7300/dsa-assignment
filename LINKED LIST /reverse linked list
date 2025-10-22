@@ -1,0 +1,21 @@
+ ListNode* reverseList(ListNode* head) {
+         
+          ListNode*curr=head;
+         ListNode*prev=NULL;
+          ListNode*fut=NULL;
+
+          while(curr)
+          {
+            fut=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=fut;
+          }  
+
+             head=prev;
+            return head;
+
+    }
+
+t.c=o(n)
+s.c=o(1)
