@@ -1,0 +1,20 @@
+bool isSameTree(TreeNode* left, TreeNode*right) {
+         if(left==NULL && right==NULL)
+         return 1;
+            
+         if((!left&&right) || (left&&!right) || left->val!=right->val)
+         return 0;
+
+
+        return isSameTree(left->left, right->right) &&isSameTree(left->right, right->left);
+    } 
+  
+    bool isSymmetric(TreeNode* root) {
+          
+            if(!root)
+            return 1;
+
+            return isSameTree(root->left ,root->right);
+    }
+    t.c=o(1)
+    s.c=o(1)
