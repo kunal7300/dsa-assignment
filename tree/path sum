@@ -1,0 +1,16 @@
+   bool check(TreeNode*root , int targetSum , int sum)
+   {
+      
+          if(!root) return false;
+
+          sum+=root->val;
+
+          if(!root->left&& !root->right) return  sum==targetSum;
+
+          return check(root->left,targetSum,sum) || check(root->right,targetSum,sum);
+   }
+    bool hasPathSum(TreeNode* root, int targetSum) {
+         return check(root,targetSum, 0);
+    }
+t.c=o(n)
+s.c=o(n)
