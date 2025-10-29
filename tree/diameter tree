@@ -1,0 +1,24 @@
+int diameter(TreeNode*root , int &dia)
+   {
+         
+         if(!root) 
+         return 0;
+     
+        int lefth=diameter(root->left , dia);
+        int righth=diameter(root->right , dia);
+
+        dia=max(dia , lefth +righth);
+
+     return 1+max(lefth , righth);
+   
+    
+   }
+    int diameterOfBinaryTree(TreeNode* root) {
+      int dia=0;
+     diameter(root,dia);
+      
+       return dia;
+    }
+
+t.c=o(n)
+s.c=o(n)
