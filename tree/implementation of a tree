@@ -1,0 +1,43 @@
+ TreeNode* createBinaryTree(vector<vector<int>>& descriptions) {
+        int n =descriptions.size();
+      
+       unordered_map<int, TreeNode*>mp;
+       unordered_set<int>bcha;
+
+       for(int i=0 ; i<n ; i++)
+       {
+          int parent = descriptions[i][0];
+          int child = descriptions[i][1];
+          int left = descriptions[i][2];
+
+            if(mp.find(parent)==mp.end()){
+                mp[parent]=new TreeNode(parent);
+            }
+
+            if(mp.find(child)==mp.end()){
+                mp[child]=new TreeNode(child);
+            }
+            if(left==1){
+                mp[parent]->left=mp[child];
+            }
+            if(left==0){
+                mp[parent]->right=mp[child];
+            }
+
+            bcha.insert(child);
+       }
+
+       TreeNode*root=NULL;
+        
+        for(auto &i : mp){
+             if(bcha.find(i.first)==bcha.end()){
+                root=i.second;
+                break;
+             }
+        }
+
+       return root;
+    }
+
+t.c=o(n)
+s.c=o(n)
