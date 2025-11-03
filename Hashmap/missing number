@@ -1,0 +1,30 @@
+ int missingNumber(vector<int>& nums) {
+        // mathematical approach
+
+        int sum1=0 ;
+        int n =nums.size();
+        for(int i=0 ; i<n  ; i++)
+        {
+            sum1+=nums[i];
+        }
+       int sum2=n*(n+1)/2;
+
+       return sum2-sum1; 
+t.c=o(n)
+s.c=o(1)
+
+       
+       // bit manipulation 
+
+        int ans =nums.size();
+
+        for(int i=0 ; i<nums.size(); i++)
+        {
+            ans^=i^nums[i];
+        }
+        return ans;
+    }
+
+
+t.c=o(n)
+s.c=o(1)
