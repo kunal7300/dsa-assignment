@@ -1,0 +1,24 @@
+  int longestConsecutive(vector<int>& arr) {
+      if (arr.empty()) return 0;
+
+    sort(arr.begin(), arr.end());
+    int longest = 1;
+    int currLen = 1;
+
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] == arr[i - 1]) {
+            continue; // skip duplicates
+        } else if (arr[i] == arr[i - 1] + 1) {
+            currLen++;
+        } else {
+            longest = max(longest, currLen);
+            currLen = 1;
+        }
+    }
+
+    longest = max(longest, currLen);
+    return longest;
+    }
+
+    t.c=o(n)
+    s.c=o(1)
