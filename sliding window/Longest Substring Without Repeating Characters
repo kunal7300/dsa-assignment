@@ -1,0 +1,19 @@
+int lengthOfLongestSubstring(string s) {
+     
+      int maxlen=0 ;
+      int start=0;
+      vector<int>last(256,-1);
+      for(int end=0 ; end<s.size() ; end++)
+      {
+         if(last[s[end]]>=start){
+            start=last[s[end]]+1;
+         }  
+            last[s[end]]=end;
+            maxlen=max(maxlen , end-start+1);
+         
+      }
+
+      return maxlen;
+    }
+t.c=o(n)
+s.c=o(1)
