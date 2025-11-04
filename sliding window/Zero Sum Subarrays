@@ -1,0 +1,26 @@
+int findSubarray(vector<int> &arr) {
+       
+       unordered_map<int,int>mp;
+       mp[0]=1;
+       int sum=0 , total=0 ;
+       
+       for(int i=0 ; i<arr.size(); i++)
+       {
+           sum+=arr[i];
+           
+           if(mp.count(sum))
+           {
+               total+=mp[sum];
+               mp[sum]++;
+           }
+           else
+           {
+               mp[sum]=1;
+           }
+       }
+       
+       return total;
+       
+    }
+t.c=o(N);
+t.c=o(N);
