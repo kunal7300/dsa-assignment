@@ -1,0 +1,34 @@
+int maxLength(vector<int>& nums) {
+        int i=0 ;
+        int sum =0 ;
+        int maxlen=0; 
+        
+        
+        unordered_map<int, int>m;
+        
+        while(i<nums.size())
+        {
+            sum+=nums[i];
+            
+            if(sum==0)
+            {
+                maxlen=i+1;
+            }
+            
+            if(m.count(sum))
+            {
+                int len = i-m[sum];
+                maxlen=max(maxlen , len);
+            }
+            else
+            {
+                m[sum]=i;
+            }
+            i++;
+        }
+        
+        return  maxlen;
+    }
+
+t.c=o(n)
+s.c=o(n)
