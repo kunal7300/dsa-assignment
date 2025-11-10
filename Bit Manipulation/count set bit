@@ -1,0 +1,13 @@
+ int countSetBits(int n) {
+      int count = 0;
+      for (int i = 1; i <= n; i++) {
+          int x=i;
+          while(x){
+              x&=(x-1);
+              count++;
+          }
+        }
+      return count;
+    }
+t.c=o(n)
+s.c=o(1)
